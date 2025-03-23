@@ -6,8 +6,10 @@ import CurrentProject from "@/components/currentProject";
 import CoreValues from "@/components/coreValues";
 import Funded from "@/components/Funded";
 import Joinin from "@/components/Joinin";
-import Portfolio from "@/components/portfolio";
+import Initiatives from "@/components/initiatives";
 import Footer from "@/components/Footer";
+import Portfolio from "@/components/portfolio";
+import Legalization from "@/components/Legalization";
 export default function Home() {
   return (
     <div className="">
@@ -18,8 +20,13 @@ export default function Home() {
     <CoreValues/>
     <Funded/>
     <Joinin/>
+    <Initiatives/>
     <Portfolio/>
+    <Legalization/>
+
+    {/* Footer */}
     <Footer/>
+
     </div>
   );
 }

@@ -17,8 +17,8 @@ const Navbar = ()=>{
             <ul className="flex items-center gap-4 text-gray-400">
                <li className="underline underline-offset-4 decoration-amber-300"><a href="#" className=""><p className=""> Home </p></a></li>
                <li><a href="#about" className="">About</a></li>
-               <li><a href="#donate" className="">Contact</a></li>
-               <li><a href="#mission" className="">Mission</a></li>
+               <li><a href="#donate" className="hidden md:block">Contact</a></li>
+               <li><a href="#mission" className="hidden md:block">Mission</a></li>
                <li className="hidden md:block">
                   <Link href={'#donate'} className="bg-amber-300 p-2 text-sm font-bold text-black">Donate Now</Link>
                </li>
