@@ -3,7 +3,7 @@ import { Image } from "antd";
 
 const Portfolio = () => {
   return (
-    <div className="flex flex-col gap-10 w-full items-center min-h-[50dvh] justify-center p-10">
+    <div className="flex flex-col gap-10 w-full items-center min-h-[50dvh] justify-center lg:p-10 p-3">
       <div className="flex flex-col gap-5">
         <h1 className="text-4xl font-bold place-self-center uppercase underline underline-offset-8 decoration-amber-300">
           Our Initiatives

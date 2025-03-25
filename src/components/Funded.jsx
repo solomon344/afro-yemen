@@ -9,7 +9,7 @@ const Funded = () => {
     <div id="donate" className='flex flex-col gap-10 w-full lg:items-center min-h-[100dvh] justify-center p-10'>
 
         <div className='lg:w-3/4 flex flex-col gap-3'>
-            <h1 className='text-4xl font-bold uppercase underline underline-offset-8 decoration-amber-300'>How we get funded</h1>
+            <h1 className='lg:text-4xl text-2xl font-bold uppercase underline underline-offset-8 decoration-amber-300'>How we get funded</h1>
             <div className={` italic text-gray-700`}>
                 <p>
                 The Organisation is mainly funded through donation. Therefore, if you want to donate in cash send it to the organisation account below.
@@ -19,7 +19,7 @@ const Funded = () => {
         </div>
 
         <div className='lg:w-3/4 flex flex-col gap-3'>
-            <h1 className='text-3xl font-bold uppercase underline underline-offset-8 decoration-amber-300'>Contacts & Addresses</h1>
+            <h1 className='lg:text-4xl text-2xl font-bold uppercase underline underline-offset-8 decoration-amber-300'>Contacts & Addresses</h1>
             <div className={` italic text-gray-700 flex flex-col gap-3 p-2 `}>
                 <div className="flex items-center gap-2">
                     <p className="font-bold">Tel:</p>

@@ -36,7 +36,7 @@ const HeroSection = () => {
          <div>
          <p className="font-bold uppercase underline underline-offset-4 decoration-yellow-300 decoration-2">Donate Now</p>
          <p className="line-clamp-2 text-sm text-gray-600">
-          Every Penny matters, donate anything ti help save lives of the young generation.
+          Every Penny matters, donate anything to help save lives of the young generation.
          </p>
          </div>
         </div>

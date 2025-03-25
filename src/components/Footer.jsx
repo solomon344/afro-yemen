@@ -8,7 +8,7 @@ const Footer = () => {
   return (
     <div className=" bg-[#404142] flex flex-col gap-3">
       <div className="lg:w-3/4 place-self-center flex flex-col gap-10">
-        <div className="p-5 bg-yellow-300 grid grid-cols-3 items-center gap-2 ">
+        <div className="p-5 bg-yellow-300 grid grid-cols-1 lg:grid-cols-3 items-center gap-4 ">
           <div className="flex items-center gap-3">
             <div className="p-4 bg-gray-100 rounded-full w-fit">
               <MailCheck size={"2rem"} />

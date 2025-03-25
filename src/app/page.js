@@ -12,7 +12,7 @@ import Portfolio from "@/components/portfolio";
 import Legalization from "@/components/Legalization";
 export default function Home() {
   return (
-    <div className="">
+    <div className="flex flex-col gap-10">
     <HeroSection/>
     <CurrentProject/>
     <About/>

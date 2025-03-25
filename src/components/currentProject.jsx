@@ -10,14 +10,14 @@ const CurrentProject = () => {
         </div>
 
         <div className="lg:w-3/4 w-full p-3 flex items-center gap-3 place-self-center">
-        <Progress percent={75} strokeColor={'#F2BB05'}  className="w-3/4 rounded-none" size={{height:20}}/>
+        <Progress percent={0} strokeColor={'#F2BB05'}  className="w-3/4 rounded-none" size={{height:20}}/>
         <button className="text-amber-300 bg-black shrink-0 p-2 text-sm font-bold">Donate Now</button>
         </div>
 
         <div className="grid grid-cols-3 lg:w-3/4 w-full p-3 place-self-center font-semibold">
-            <p>D7,500 Raised</p>
+            <p>0.00 GMD Raised</p>
             <p className="text-center">365 days left</p>
-            <p className="text-center">Goal D75,500</p>
+            <p className="text-center ">Goal, 400,000 GMD</p>
 
         </div>
 
