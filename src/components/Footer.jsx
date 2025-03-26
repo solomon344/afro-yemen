@@ -3,61 +3,33 @@
 import { MailCheck, Copyright } from "lucide-react";
 import {FaFacebook, FaInstagram, FaTwitter, FaLinkedinIn} from "react-icons/fa"
 import Link from "next/link";
+import { CreateNewsLetter,CreateMessage, } from "@/app/utils";
+import { Button, ConfigProvider } from "antd";
+import { useState } from "react";
+
+
 
 const Footer = () => {
+ 
   return (
-    <div className=" bg-[#404142] flex flex-col gap-3">
+ 
+      <div className=" bg-[#404142] flex flex-col gap-3">
       <div className="lg:w-3/4 place-self-center flex flex-col gap-10">
-        <div className="p-5 bg-yellow-300 grid grid-cols-1 lg:grid-cols-3 items-center gap-4 ">
-          <div className="flex items-center gap-3">
-            <div className="p-4 bg-gray-100 rounded-full w-fit">
-              <MailCheck size={"2rem"} />
-            </div>
+        <NewsLetter/>
 
-            <div className="flex flex-col gap-2">
-              <h1 className="font-bold uppercase">
-                <span className="underline underline-offset-4 decoration-white">
-                  newsletter
-                </span>{" "}
-                sign-up
-              </h1>
-              <div>
-                <p className="text-sm italic line-clamp-2 text-gray-500">
-                (comming soon) Subscribe to our newsletter to stay up to date with our latest projects and development.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div className="flex items-end gap-4 col-span-2 justify-between">
-            <div className="flex flex-col gap-1 grow">
-              <label htmlFor="email">Email</label>
-              <input
-                id="email"
-                type="email"
-                className="bg-white w-full outline-0 p-1"
-                placeholder="Email..."
-              />
-            </div>
-
-            <div className="flex flex-col gap-1 grow ">
-              <label htmlFor="name">Name</label>
-              <div className="flex items-center gap-2">
-                <input
-                  id="name"
-                  type="email"
-                  className="bg-white w-full outline-0 p-1"
-                  placeholder="Name..."
+        <div className="flex flex-col gap-1">
+          <h1 className="text-gray-200">Unsubscribe to our newsletter</h1>
+          <form action="/newsletter/unsub" className="flex items-center gap-3">
+          <input
+                  id="email"
+                  required
+                  type="text"
+                  className="w-full border text-gray-200 outline-0 border-gray-300 p-2"
+                  placeholder="Email ..."
+                  name="email"
                 />
-              </div>
-            </div>
-
-            <div>
-              <button disabled className="bg-black text-white p-1 pl-4 pr-4">
-                submit
-              </button>
-            </div>
-          </div>
+          <button type="submit" className="bg-amber-300 p-2 text-sm font-bold">unsubscribe</button>
+          </form>
         </div>
 
         <div className="grid grid-cols-1 p-3 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -91,45 +63,7 @@ const Footer = () => {
           </div>
 
 
-          <div className="flex flex-col gap-3 ">
-            <h1 className="font-bold underline underline-offset-4 decoration-amber-300 text-gray-300 uppercase">
-              leave us a message
-            </h1>
-
-            <form action="" className="flex flex-col gap-4 text-gray-200">
-              <div>
-                <input
-                  id="name"
-                  type="text"
-                  className="w-full border border-gray-300 p-2"
-                  placeholder="Name..."
-                />
-              </div>
-
-              <div>
-                <input
-                  id="email"
-                  type="text"
-                  className="w-full border border-gray-300 p-2"
-                  placeholder="Email..."
-                />
-              </div>
-
-              <div className="flex flex-col gap-1">
-                <textarea
-                  id="message"
-                  name="message"
-                  className="w-full min-h-[100px] border border-gray-300 p-3"
-                  rows={'3'}
-                  placeholder="Message..."
-                ></textarea>
-              </div>
-
-              <div>
-                <button className="p-2 pl-5 pr-5 bg-yellow-300 text-black">Submit</button>
-              </div>
-            </form>
-          </div>
+          <Message/>
         </div>
 
 
@@ -143,6 +77,8 @@ const Footer = () => {
           <p className="font-bold">Afro-Yemen CO</p>
         </div>
 
+        
+
         <div className="flex items-center  text-gray-400 gap-3">
           <p className="font-bold">
             Follow Us On
@@ -155,7 +91,177 @@ const Footer = () => {
         </div>
       </div>
     </div>
+  
   );
 };
 
 export default Footer;
+
+const NewsLetter = ()=>{
+  const [loading,setLoading] = useState(false)
+  const handleCreateNewsLetter = (e)=>{
+    e.preventDefault()
+    setLoading(true)
+    const formData = new FormData(e.target)
+
+    const data = Object.fromEntries(formData)
+    CreateNewsLetter(data).then(response=>{
+      alert(response)
+      setLoading(false)
+      e.target.reset()
+    }).catch(err=>{
+      alert(err.message)
+      setLoading(false)
+    })
+  }
+
+  return (
+    <ConfigProvider
+  theme={{
+    components:{
+      Button:{
+        colorText:"white",
+        colorBgContainer:"black"
+      }
+    }
+  }}
+  >
+     <div className="p-5 bg-yellow-300 grid grid-cols-1 lg:grid-cols-3 items-center gap-4 ">
+          <div className="flex items-center gap-3">
+            <div className="p-4 bg-gray-100 rounded-full w-fit">
+              <MailCheck size={"2rem"} />
+            </div>
+
+            <div className="flex flex-col gap-2">
+              <h1 className="font-bold uppercase">
+                <span className="underline underline-offset-4 decoration-white">
+                  newsletter
+                </span>{" "}
+                sign-up
+              </h1>
+              <div>
+                <p className="text-sm italic line-clamp-2 text-gray-500">
+                Subscribe to our newsletter to stay up to date with our latest projects and development.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <form onSubmit={handleCreateNewsLetter} className="flex items-end gap-4 col-span-2 justify-between">
+            <div  className="flex flex-col gap-1 grow">
+              <label htmlFor="email">Email</label>
+              <input
+              required
+                id="email"
+                type="email"
+                className="bg-white w-full outline-0 p-1"
+                placeholder="Email..."
+                name="email"
+              />
+            </div>
+
+            <div className="flex flex-col gap-1 grow ">
+              <label htmlFor="name">Name</label>
+              <div className="flex items-center gap-2">
+                <input
+                required
+                  id="name"
+            
+                  className="bg-white w-full outline-0 p-1"
+                  placeholder="Name..."
+                  name="name"
+                />
+              </div>
+            </div>
+
+            <div>
+              <Button loading={loading} htmlType="submit" color="black" className="bg-black">
+                submit
+              </Button>
+            </div>
+          </form>
+        </div>
+  </ConfigProvider>
+   
+  )
+}
+
+const Message = ()=>{
+  const [loading,setLoading] = useState(false)
+  const handleCreateMessage = (e)=>{
+    e.preventDefault()
+    setLoading(true)
+    const formData = new FormData(e.target)
+
+    const data = Object.fromEntries(formData)
+    CreateMessage(data).then(response=>{
+      alert(response)
+      setLoading(false)
+      e.target.reset()
+    }).catch(err=>{
+      alert("something went wrong")
+      setLoading(false)
+    })
+  }
+
+
+  return (
+    <ConfigProvider
+    theme={{
+      components:{
+        Button:{
+          colorText:"black",
+          colorBgContainer:"yellow",
+         defaultHoverBorderColor:"black",
+         borderRadius:0
+        }
+      }
+    }}
+    >
+      <div className="flex flex-col gap-3 ">
+            <h1 className="font-bold underline underline-offset-4 decoration-amber-300 text-gray-300 uppercase">
+              leave us a message
+            </h1>
+
+            <form  onSubmit={handleCreateMessage} className="flex flex-col gap-4 text-gray-200">
+              <div>
+                <input
+                  id="name"
+                  required
+                  type="text"
+                  className="w-full border border-gray-300 p-2"
+                  placeholder="Name..."
+                  name="name"
+                />
+              </div>
+
+              <div>
+                <input
+                  id="email"
+                  required
+                  type="text"
+                  className="w-full border border-gray-300 p-2"
+                  placeholder="Email..."
+                  name="email"
+                />
+              </div>
+
+              <div className="flex flex-col gap-1">
+                <textarea
+                  id="message"
+                  minLength={10}
+                  name="content"
+                  className="w-full min-h-[100px] border border-gray-300 p-3"
+                  rows={'3'}
+                  placeholder="Message..."
+                ></textarea>
+              </div>
+
+              <div>
+                <Button loading={loading} size="large" htmlType="submit">Submit</Button>
+              </div>
+            </form>
+          </div>
+    </ConfigProvider>
+  )
+}
