@@ -1,6 +1,6 @@
 'use client'
 
-import { poppins } from "@/app/fonts"
+import { poppins, courier, inconsolata } from "@/app/fonts"
 
 
 
@@ -38,6 +38,30 @@ const Funded = () => {
                     </p>
                 </div>
             </div>
+        </div>
+
+        <div className='lg:w-3/4 flex flex-col gap-3'>
+        <h1 className='lg:text-4xl text-2xl font-bold uppercase underline underline-offset-8 decoration-amber-300'>Account Info</h1>
+
+        <div className={` italic text-gray-700 flex flex-col gap-3 p-2 `}>
+        <div className="flex items-center gap-2">
+                    <p className="font-bold">Country:</p>
+                    <p className="uppercase">The Gambia.</p>
+        </div>
+
+        <div className="flex items-center gap-2">
+                    <p className="font-bold">Bank Name:</p>
+                    <p className="uppercase">Acces Bank ltd.</p>
+        </div>
+        <div className="flex items-center gap-2">
+                    <p className="font-bold">Account Name:</p>
+                    <p className="uppercase">Afroyemen charity organization</p>
+        </div>
+        <div className="flex items-center gap-2">
+                    <p className="font-bold">Account No:</p>
+                    <p className={`${inconsolata.className} text-xl`}>0070-1100-00091</p>
+        </div>
+        </div>
         </div>
     </div>
   )
