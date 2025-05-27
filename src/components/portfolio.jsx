@@ -8,12 +8,18 @@ const Portfolio = () => {
           Portfolio
         </h1>
 
-        <div className='grid grid-cols-1 lg:grid-cols-3 gap-4 '>
-            <div>
+        <div className='flex float-start '>
+            <div className='w-[400px] h-fit'>
                 <Image src='/img/p3.jpg'/>
             </div>
-            <div>
+            <div className='w-[400px] h-fit'>
                 <Image src='/img/p8.jpg'/>
+            </div>
+            <div className='w-[400px] h-fit'>
+                <Image src='/img/p10.jpeg'/>
+            </div>
+            <div className='w-[400px] h-fit'>
+                <Image src='/img/p11.jpeg'/>
             </div>
         </div>
         
